@@ -1,0 +1,7 @@
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+header { background: #222; color: #fff; padding: 10px; text-align: center; }
+h1 a { color: #fff; text-decoration: none; }
+.movie-list { display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; }
+.movie-card { border: 1px solid #ccc; padding: 15px; border-radius: 8px; width: 250px; }
+.seats label { display: inline-block; margin: 5px; padding: 8px; border: 1px solid #333; border-radius: 4px; cursor: pointer; }
+.seats input:disabled + label { background: #aaa; cursor: not-allowed; }

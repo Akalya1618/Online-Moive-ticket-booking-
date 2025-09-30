@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Select Seats for {{ showtime.movie.title }} - {{ showtime.start_time }}</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="seats">
+        {% for seat in seats %}
+            <label>
+                <input type="checkbox" name="seats" value="{{ seat.id }}" {% if seat.is_booked %}disabled{% endif %}>
+                {{ seat.row }}{{ seat.number }}
+            </label>
+        {% endfor %}
+    </div>
+    <button type="submit">Continue to Checkout</button>
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ movie.title }}</h2>
+<p>{{ movie.description }}</p>
+
+<p>Duration: {{ movie.duration }} mins | Rating: {{ movie.rating }}</p>
+
+<h3>Showtimes</h3>
+<ul>
+    {% for showtime in showtimes %}
+        <li>{{ showtime.start_time }} | Screen: {{ showtime.screen }} | ₹{{ showtime.price }}
+        <a href="{% url 'seat_selection' showtime.id %}">Select Seats</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

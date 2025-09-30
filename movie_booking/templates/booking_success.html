@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Booking Confirmed ✅</h2>
+    <p>Thank you {{ booking.name }}!</p>
+
+    <p><strong>Movie:</strong> {{ booking.showtime.movie.title }}</p>
+    <p><strong>Showtime:</strong> {{ booking.showtime.start_time }}</p>
+    <p><strong>Seats:</strong> 
+        {% for seat in booking.seats.all %}
+            {{ seat.row }}{{ seat.number }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+
+    <p><strong>Total Paid:</strong> ₹{{ total_price }}</p>
+    <p><strong>Payment Method:</strong> {{ payment_method }}</p>
+
+    <a href="/" class="btn btn-primary">Back to Home</a>
+{% endblock %}
